@@ -5,9 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Weather Today App</title>
 </head>
-<h1>How is the weather today</h1>
+<div class="container">
+<h2>
+    How is the weather today
+</h2>
+<div class="search-section">
+<form>
+    <input 
+    type="text"
+    placeholder="Enter a city"
+    />
+    <input id="go-button" type="submit" value="Go!" />
+        <br />
+    <input id="current-location-button" type="submit" value="Current location" />
+</form>
+</div>
+<div class="searchresult-section">
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>City</li>
+                <li>Weather image</li>
+            </ul>
+            <ul>
+                <li>current date</li>
+                <li> temp C°|F°</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="forecast-section">
+    <div class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li>Next day</li>
+                    <li>weather image</li>
+                    </li>temp C°|F°</li>
+                </ul>
+                <ul>
+                    <li>Second Next day</li>
+                    <li>weather image</li>
+                    </li>temp C°|F°</li>
+                </ul>
+                <ul>
+                    <li>Third Next day</li>
+                    <li>weather image</li>
+                    </li>temp C°|F°</li>
+                </ul>
+            </div>
+    </div>
+</div>
+<p>No matter how the weather is, let your day be beautiful 💜</p>
+<small>
+    <a href="https://github.com/GoksenCodes/Weather-today-project" target="_blank">Open-source code</a> by Goksen Gorgulu</small>
+</div>
 <body>
 <script src='src/app.js'></script>
 </body>
