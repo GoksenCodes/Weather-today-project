@@ -1,0 +1,48 @@
+h2 {
+    text-align: center;
+    color: #46b3e6;
+}
+li {
+   list-style: none; 
+}
+body {
+background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+input {
+    margin-bottom: 10px;
+    color: slategray;
+    border-radius: 5px;
+  }
+
+p {
+    font-size: 14px;
+}
+
+.below-heading{
+    color: slategray;
+    text-align: center;
+}
+.weathertoday-app {
+    max-width: 900px ;
+    margin: 80px auto ;
+    padding: 50px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+.search-box {
+    width: 400px;
+}
+.search-section {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.searchresult-section {
+    padding: 40px 160px;
+    font-size: 18px;
+}
+
+.forecast-section {
+    padding: 80px 0 80px;
+    font-size: 16px;
+}
