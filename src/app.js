@@ -44,7 +44,6 @@ function showTemperature(response) {
 
 
 
-
 function ShowForecast(response) {
     console.log(response)
     let firstTemp = document.querySelector("#temp-3 strong") ;
@@ -98,12 +97,43 @@ function getCity(event) {
 }
 
 
-
-
-
 let form = document.querySelector("#search-form")
 form.addEventListener("submit", getCity) ;
 
 search("New York")
 
+function displayData(response) {
+    let city = document.querySelector("#searched-city");
+    let currentCity = response.data.name;
+    let temp = document.querySelector("#temp");
+    let currentCityTemp = response.data.main.temp;
+    console.log(response);
+    city.innerHTML = currentCity;
+    temp.innerHTML = currentCityTemp;
+  }
 
+function showPosition(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let apiKey = "683dab27e61c352cc6f11bcf41592476";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(displayData);
+  }
+  
+  function getCoords() {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  
+  let button = document.querySelector("#current-location-button");
+  button.addEventListener("click", getCoords);
+  
+  function displayCityData(response) {
+      let city = document.querySelector(".city");
+      let userCityInput = response.data.name;
+      let temp = document.querySelector(".degree-value");
+      let inputTemp = response.data.main.temp;
+      city.innerHTML = userCityInput;
+      temp.innerHTML = inputTemp;
+    }
+  
