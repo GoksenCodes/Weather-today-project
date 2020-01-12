@@ -19,7 +19,7 @@ function formatDate(timestamp) {
         "Sunday"
       ];
     let day = days[date.getDay()];
-    return `${day} ${hours}:${minutes}` ;
+    return `Last updated ${day} ${hours}:${minutes}` ;
 
 
     
@@ -35,24 +35,48 @@ function showTemperature(response) {
     let currentDayIcon = document.querySelector("#current-icon")
     currentDayIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     currentDayIcon.setAttribute("alt", response.data.weather[0].description);
+
+    let tip = document.querySelector("#tips")
+    if (response.data.weather[0].description == "clear sky") {
+    tip.innerHTML =  "Enjoy the sun!"
+    }
 }
+
+
+
 
 function ShowForecast(response) {
     console.log(response)
-    let firstTemp = document.querySelector("#temp-3") ;
-    firstTemp.innerHTML = Math.round(response.data.list[0].main.temp);
+    let firstTemp = document.querySelector("#temp-3 strong") ;
+    firstTemp.innerHTML = Math.round(response.data.list[1].main.temp);
+    let firstHour = document.querySelector("#hours-3") ;
+    firstHour.innerHTML = second_half(response.data.list[1].dt_txt) ;
     let firstIcon = document.querySelector("#icon-3") ;
-    firstIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`);
-    let secondTemp = document.querySelector("#temp-6") ;
-    secondTemp.innerHTML = Math.round(response.data.list[1].main.temp);
+    firstIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
+   
+    let secondTemp = document.querySelector("#temp-6 strong") ;
+    secondTemp.innerHTML = Math.round(response.data.list[3].main.temp);
+    let secondHour = document.querySelector("#hours-6") ;
+    secondHour.innerHTML = second_half(response.data.list[3].dt_txt) ;
     let secondIcon = document.querySelector("#icon-6") ;
-    secondIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
-    let thirdTemp = document.querySelector("#temp-9") ;
-    thirdTemp.innerHTML = Math.round(response.data.list[2].main.temp);
+    secondIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png`);
+   
+    let thirdTemp = document.querySelector("#temp-9 strong") ;
+    thirdTemp.innerHTML = Math.round(response.data.list[5].main.temp);
+    let thirdHour = document.querySelector("#hours-9") ;
+    thirdHour.innerHTML = second_half(response.data.list[5].dt_txt) ;
     let thirdIcon = document.querySelector("#icon-9") ;
-    thirdIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[2].weather[0].icon}@2x.png`);
+    thirdIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[5].weather[0].icon}@2x.png`);
+
 
 }
+
+
+function second_half (datetime) {
+    console.log (datetime);
+    return datetime.slice(11,16)
+    }
+
 
 function search(city) {
     let apiKey="683dab27e61c352cc6f11bcf41592476" ;
@@ -81,3 +105,5 @@ let form = document.querySelector("#search-form")
 form.addEventListener("submit", getCity) ;
 
 search("New York")
+
+
