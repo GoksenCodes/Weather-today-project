@@ -61,3 +61,11 @@ p {
     padding: 50px 0 0;
 }
 
+.active {
+    color: #505050;
+    cursor: default;
+}
+
+.active:hover {
+    text-decoration: none;
+}
