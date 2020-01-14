@@ -45,7 +45,7 @@ function showTemperature(response) {
 
 function showForecast(response) {
     console.log(response)
-    let firstTemp = document.querySelector("#temp-3 strong") ;
+    let firstTemp = document.querySelector("#temp-3") ;
     celsiusTemp3 = response.data.list[1].main.temp ;
     firstTemp.innerHTML = Math.round(celsiusTemp3);
     let firstHour = document.querySelector("#hours-3") ;
@@ -53,7 +53,7 @@ function showForecast(response) {
     let firstIcon = document.querySelector("#icon-3") ;
     firstIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
    
-    let secondTemp = document.querySelector("#temp-6 strong") ;
+    let secondTemp = document.querySelector("#temp-6") ;
     celsiusTemp6 = response.data.list[3].main.temp ;
     secondTemp.innerHTML = Math.round(celsiusTemp6);
     let secondHour = document.querySelector("#hours-6") ;
@@ -61,7 +61,7 @@ function showForecast(response) {
     let secondIcon = document.querySelector("#icon-6") ;
     secondIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png`);
    
-    let thirdTemp = document.querySelector("#temp-9 strong") ;
+    let thirdTemp = document.querySelector("#temp-9") ;
     celsiusTemp9 = response.data.list[5].main.temp
     thirdTemp.innerHTML = Math.round(celsiusTemp9);
     let thirdHour = document.querySelector("#hours-9") ;
