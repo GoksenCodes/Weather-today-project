@@ -46,21 +46,24 @@ function showTemperature(response) {
 function showForecast(response) {
     console.log(response)
     let firstTemp = document.querySelector("#temp-3 strong") ;
-    firstTemp.innerHTML = Math.round(response.data.list[1].main.temp);
+    celsiusTemp3 = response.data.list[1].main.temp ;
+    firstTemp.innerHTML = Math.round(celsiusTemp3);
     let firstHour = document.querySelector("#hours-3") ;
     firstHour.innerHTML = second_half(response.data.list[1].dt_txt) ;
     let firstIcon = document.querySelector("#icon-3") ;
     firstIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[1].weather[0].icon}@2x.png`);
    
     let secondTemp = document.querySelector("#temp-6 strong") ;
-    secondTemp.innerHTML = Math.round(response.data.list[3].main.temp);
+    celsiusTemp6 = response.data.list[3].main.temp ;
+    secondTemp.innerHTML = Math.round(celsiusTemp6);
     let secondHour = document.querySelector("#hours-6") ;
     secondHour.innerHTML = second_half(response.data.list[3].dt_txt) ;
     let secondIcon = document.querySelector("#icon-6") ;
     secondIcon.setAttribute("src" ,`http://openweathermap.org/img/wn/${response.data.list[3].weather[0].icon}@2x.png`);
    
     let thirdTemp = document.querySelector("#temp-9 strong") ;
-    thirdTemp.innerHTML = Math.round(response.data.list[5].main.temp);
+    celsiusTemp9 = response.data.list[5].main.temp
+    thirdTemp.innerHTML = Math.round(celsiusTemp9);
     let thirdHour = document.querySelector("#hours-9") ;
     thirdHour.innerHTML = second_half(response.data.list[5].dt_txt) ;
     let thirdIcon = document.querySelector("#icon-9") ;
@@ -150,6 +153,18 @@ function getPosition(position) {
         let temp = document.querySelector("#temp")
         temp.innerHTML = Math.round(fahrenheitTemp);
 
+        let fahrenheitTemp3 = (celsiusTemp3 * 9) / 5 + 32
+        let temp3 = document.querySelector("#temp-3")
+        temp3.innerHTML = Math.round(fahrenheitTemp3);
+
+        let fahrenheitTemp6 = (celsiusTemp6 * 9) / 5 + 32
+        let temp6 = document.querySelector("#temp-6")
+        temp6.innerHTML = Math.round(fahrenheitTemp6);
+
+        let fahrenheitTemp9 = (celsiusTemp9 * 9) / 5 + 32
+        let temp9 = document.querySelector("#temp-9")
+        temp9.innerHTML = Math.round(fahrenheitTemp9);
+
     }
 
     function showCelsiusTemp(event) {
@@ -161,9 +176,14 @@ function getPosition(position) {
     }
 
     let celsiusTemp = null;
+    let celsiusTemp3 = null ;
+    let celsiusTemp6 = null;
+    let celciusTemp9 = null;
 
-    let fahrenheitLink = document.querySelector("#fahrenheit");
+    let fahrenheitLink = document.querySelector(".fahrenheit");
     fahrenheitLink.addEventListener("click" , showFahrenheitTemp);
 
-    let celsiusLink = document.querySelector("#celsius");
+    let celsiusLink = document.querySelector(".celsius");
     celsiusLink.addEventListener("click" , showCelsiusTemp);
+
+    
