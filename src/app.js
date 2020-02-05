@@ -173,6 +173,16 @@ function getPosition(position) {
         fahrenheitLink.classList.remove("active");
         let temp = document.querySelector("#temp");
         temp.innerHTML = Math.round(celsiusTemp);
+
+        let temp3 = document.querySelector("#temp-3");
+        temp3.innerHTML = Math.round(celsiusTemp3);
+
+        let temp6 = document.querySelector("#temp-6");
+        temp6.innerHTML = Math.round(celsiusTemp6);
+
+        let temp9 = document.querySelector("#temp-9");
+        temp9.innerHTML = Math.round(celsiusTemp9);
+
     }
 
     let celsiusTemp = null;
